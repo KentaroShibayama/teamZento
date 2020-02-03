@@ -8,7 +8,6 @@ CREATE TABLE Diagnosis(
 );
 CREATE TABLE SelectAnswerPoint(
 	id int,
-	AnswerNumber int,
 	answer varchar(64),
 	answerPoint int
 );
