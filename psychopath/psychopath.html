@@ -14,7 +14,10 @@
                 <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo3">質問１</span><br></p>
     
     <script>
-        fetch("/api/psychoQuestion.php")
+        fetch("/teamZento/psychopath/api/psychoQuestion.php")
+        .then( (res)=>{
+             return res.json(); 
+        })
         .then((json)=>{
             document.querySelector("#text-question").innerHTML=json["que"];
         })
