@@ -1,1 +1,37 @@
-<>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>サイコパス診断</title>
+    </head>
+    <body>
+        <h1>質問</h1>
+        <div id="text-question"></div>
+
+        <p>選択してください。<br>
+                <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo1">質問１</span> <br>
+                <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo2">質問１</span> <br>
+                <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo3">質問１</span><br>
+                <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo4">質問１</span> <br></p>
+    
+    <script>
+        
+
+        function selectQues(){
+            var foo1 = document.querySelector("#foo1");
+            foo1.innerHTML = "質問2";
+
+            var foo2 = document.querySelector("#foo2");
+            foo2.innerHTML = "質問2";
+            
+            var foo3 = document.querySelector("#foo3");
+            foo3.innerHTML = "質問2";
+
+            var foo4 = document.querySelector("#foo4");
+            foo4.innerHTML = "質問2";
+
+            
+        }
+    </script>
+    </body>
+</html>
