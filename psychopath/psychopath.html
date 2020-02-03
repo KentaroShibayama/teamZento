@@ -11,12 +11,13 @@
         <p>選択してください。<br>
                 <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo1">質問１</span> <br>
                 <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo2">質問１</span> <br>
-                <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo3">質問１</span><br>
-                <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo4">質問１</span> <br></p>
+                <input type="radio" name="ques" value="que" onclick="selectQues()"><span id="foo3">質問１</span><br></p>
     
     <script>
-        
-
+        fetch("/api/psychoQuestion.php")
+        .then((json)=>{
+            document.querySelector("#text-question").innerHTML=json["que"];
+        })
         function selectQues(){
             var foo1 = document.querySelector("#foo1");
             foo1.innerHTML = "質問2";
@@ -26,10 +27,6 @@
             
             var foo3 = document.querySelector("#foo3");
             foo3.innerHTML = "質問2";
-
-            var foo4 = document.querySelector("#foo4");
-            foo4.innerHTML = "質問2";
-
             
         }
     </script>
