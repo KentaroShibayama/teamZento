@@ -54,3 +54,4 @@ insert into SelectAnswerPoint values(28,'手',0);
 insert into SelectAnswerPoint values(29,'肩',-1);
 insert into SelectAnswerPoint values(30,'頭',1);
 
+
