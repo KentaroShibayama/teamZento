@@ -1,8 +1,10 @@
 <?php
 require_once('common.php');
 
-$queData = getDB1('select max(id) as maxid from Diagnosis');
-$ansData=getDB1('select max(id) as maxid from SelectAnswerPoint');
+$qID;
+$count = 1;
+$queData = getDB1('select question from Diagnosis where questionId=qID');
+$ansData = getDB1('select AnswerNumber from SelectAnswerPoint where id=?',[$_GET['id']]);
 
 ?>
 <!DOCTYPE html>
@@ -13,6 +15,10 @@ $ansData=getDB1('select max(id) as maxid from SelectAnswerPoint');
     </head>
     <body>
         <h1>質問</h1>
-        <?= queData$['que'] ?>
+        <script>
+        document.querySelector("#Qans").addEventListener("click", (event)=>{
+            document.querySelector("#text-question").innerHTML="json["que"];"
+        });
+    </script>
     </body>
 </html>
