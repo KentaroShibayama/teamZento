@@ -17,6 +17,7 @@ $ansData = getDB1('select AnswerNumber from SelectAnswerPoint where id=?',[$_GET
         <h1>質問</h1>
         <script>
         document.querySelector("#Qans").addEventListener("click", (event)=>{
+            alert("unti");
             document.querySelector("#text-question").innerHTML="json["que"];"
         });
     </script>

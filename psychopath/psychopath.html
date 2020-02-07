@@ -9,9 +9,9 @@
         <div id="text-question"></div>
 
         <p>選択してください。<br>
-                <input type="radio" id="Qans" name="ques" value="que" onclick="selectQues()"><span id="foo1"></span> <br>
-                <input type="radio" id="Qans" name="ques" value="que" onclick="selectQues()"><span id="foo2"></span> <br>
-                <input type="radio" id="Qans" name="ques" value="que" onclick="selectQues()"><span id="foo3"></span><br></p>
+                <input type="radio" id="Qans" name="ques" value="que" ><br>
+                <input type="radio" id="Qans" name="ques" value="que" ><br>
+                <input type="radio" id="Qans" name="ques" value="que" ><br></p>
     
     <script>
         fetch("/teamZento/psychopath/api/psychoQuestion.php")
@@ -21,17 +21,20 @@
         .then((json)=>{
             document.querySelector("#text-question").innerHTML=json["que"];
         })
-        function selectQues(){
-            var foo1 = document.querySelector("#foo1");
-            foo1.innerHTML = json["ans"];
+        parentNode.querySelectorAll("#Qans").addEventListener("click", (event)=>{
+            alert("unti");
+        })
+        // function selectQues(){
+        //     var foo1 = document.querySelector("#foo1");
+        //     foo1.innerHTML = json["ans"];
 
-            var foo2 = document.querySelector("#foo2");
-            foo2.innerHTML = json["ans"];
+        //     var foo2 = document.querySelector("#foo2");
+        //     foo2.innerHTML = json["ans"];
             
-            var foo3 = document.querySelector("#foo3");
-            foo3.innerHTML = json["ans"];
+        //     var foo3 = document.querySelector("#foo3");
+        //     foo3.innerHTML = json["ans"];
             
-        }
+        // }
     </script>
     </body>
 </html>
