@@ -8,22 +8,48 @@
         <h1>質問</h1>
         <div id="text-question"></div>
 
-        <p>選択してください。<br>
-                <input type="radio" id="Qans" name="ques" value="que" ><br>
-                <input type="radio" id="Qans" name="ques" value="que" ><br>
-                <input type="radio" id="Qans" name="ques" value="que" ><br></p>
+        <p>選択してください。</p>
+                <input type="radio" class="Qans"><span id="qans1"></span><br>
+                <input type="radio" class="Qans"><span id="qans2"></span><br>
+                <input type="radio" class="Qans"><span id="qans3"></span><br>
     
     <script>
-        fetch("/teamZento/psychopath/api/psychoQuestion.php")
+        var questionCount=1;
+        var ans1=1;
+        var ans2=2;
+        var ans3=3;
+        fetch("/teamZento/psychopath/api/psychoQuestion.php?count="+questionCount+"&ansCount1="+ans1+"&ansCount2="+ans2+"&ansCount3="+ans3)
         .then( (res)=>{
              return res.json(); 
         })
         .then((json)=>{
             document.querySelector("#text-question").innerHTML=json["que"];
-        })
-        parentNode.querySelectorAll("#Qans").addEventListener("click", (event)=>{
-            alert("unti");
-        })
+             document.querySelector("#qans1").innerHTML=json["ans1"];
+             document.querySelector("#qans2").innerHTML=json["ans2"];
+             document.querySelector("#qans3").innerHTML=json["ans3"];
+        });
+
+        document.querySelectorAll(".Qans").forEach( (button)=>{
+            button.addEventListener("click", ()=>{
+                questionCount++;
+                ans1+=3;
+                ans2+=3;
+                ans3+=3;
+                if(questionCount==11){
+                location.href="/teamZento/psychopath/Result.html";
+                }
+                fetch("/teamZento/psychopath/api/psychoQuestion.php?count="+questionCount+"&ansCount1="+ans1+"&ansCount2="+ans2+"&ansCount3="+ans3)
+                .then( (res)=>{
+                return res.json(); 
+                })
+                .then((json)=>{
+                    document.querySelector("#text-question").innerHTML=json["que"];
+                    document.querySelector("#qans1").innerHTML=json["ans1"];
+                    document.querySelector("#qans2").innerHTML=json["ans2"];
+                    document.querySelector("#qans3").innerHTML=json["ans3"];
+                });
+            })
+        });
         // function selectQues(){
         //     var foo1 = document.querySelector("#foo1");
         //     foo1.innerHTML = json["ans"];
@@ -38,4 +64,4 @@
     </script>
     </body>
 </html>
-<!-- http://localhost/teamZento/psychopath/psychopath.html -->
+<!-- http://localhost/teamZento/psychopath/index.html -->

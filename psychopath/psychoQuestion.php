@@ -3,8 +3,13 @@ require_once('common.php');
 
 $qID;
 $count = 1;
+$ans1=1;
+$ans2=2;
+$ans3=3;
 $queData = getDB1('select question from Diagnosis where questionId=qID');
-$ansData = getDB1('select AnswerNumber from SelectAnswerPoint where id=?',[$_GET['id']]);
+$ansData1 = getDB1('select AnswerNumber from SelectAnswerPoint where id=ans1');
+$ansData2 = getDB1('select AnswerNumber from SelectAnswerPoint where id=ans2');
+$ansData3= getDB1('select AnswerNumber from SelectAnswerPoint where id=ans3');
 
 ?>
 <!DOCTYPE html>
